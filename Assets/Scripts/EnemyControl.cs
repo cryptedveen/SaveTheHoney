@@ -20,6 +20,7 @@ public class EnemyControl : MonoBehaviour
 
     public bool isFlyingTrue;
 
+    GameManagerScript mainscript = GameManagerScript.gameManagerInstance;
     void Start()
     {
         //Find the Hero Object with name
@@ -109,6 +110,10 @@ public class EnemyControl : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+       // mainscript.currentlyAttacking = false;
+    }
     public void colEvent()
     {
         Instantiate(VFX_Prefab, gameObject.transform.position, Quaternion.identity);

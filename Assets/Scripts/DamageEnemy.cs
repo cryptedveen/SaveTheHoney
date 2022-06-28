@@ -10,6 +10,8 @@ public class DamageEnemy : MonoBehaviour
     //[SerializeField] BoxCollider2D Hand1, Hand2, Leg1, Leg2;
     //bool isColliding = false;
 
+    [SerializeField, Tooltip("Time Before Colliders Reactivate")] float waitTime = 0.3f;
+
     Collider2D[] results = new Collider2D[] { };
     GameObject currentEnemy;
 
@@ -39,13 +41,13 @@ public class DamageEnemy : MonoBehaviour
 
       
 
-        StartCoroutine("reEnablecollider");
+      StartCoroutine("reEnablecollider");
     }
 
 IEnumerator reEnablecollider()
     {
 
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(waitTime);
       main.currentlyAttacking = false;
       
     }

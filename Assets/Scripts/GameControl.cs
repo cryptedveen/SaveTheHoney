@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameControl : MonoBehaviour
 {
     bool gameIsPaused = false;
@@ -25,5 +25,14 @@ public class GameControl : MonoBehaviour
         }
 
     }
-  
+
+
+
+    public void ReloadCurrentLevel()
+    {
+        
+       // SceneManager.UnloadScene("GameScene");
+        SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1;
+    }
 }

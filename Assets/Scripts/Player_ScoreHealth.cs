@@ -10,6 +10,7 @@ public class Player_ScoreHealth : MonoBehaviour
     [SerializeField] TextMeshProUGUI ScoreText;
     [SerializeField] Slider HealthSlider;
     [SerializeField] GameObject Hero;
+    [SerializeField] GameObject EndScreen;
     int score, life;
 
     // Start is called before the first frame update
@@ -31,8 +32,13 @@ public class Player_ScoreHealth : MonoBehaviour
 
     public void updateScore()
     {
-        score += 15;
+        score += 10;
         ScoreText.text = score.ToString();
+
+        if (score%50 == 0)
+        {
+            GameManagerScript.gameManagerInstance.canSpawnPowerBear = true;
+        }
     }
 
     void CheckHeroAlive()
@@ -41,6 +47,9 @@ public class Player_ScoreHealth : MonoBehaviour
         {
 
             Destroy(Hero.gameObject);
+
+            EndScreen.SetActive(true);
+
             Time.timeScale = 0;
 
 

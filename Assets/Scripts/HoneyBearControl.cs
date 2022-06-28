@@ -11,7 +11,10 @@ public class HoneyBearControl : MonoBehaviour
     BoxCollider2D targetBoxCollider;
     CapsuleCollider2D targetCapsuleCollider;
 
-    [SerializeField] float EnemySpeed = 10f;
+
+    public bool isPowerBear;
+
+    [SerializeField] float BearSpeed = 10f;
     GameObject gameManagerScriptBear;
 
     void Start()
@@ -31,7 +34,7 @@ public class HoneyBearControl : MonoBehaviour
 
         //Movement Code
 
-        gameObject.transform.DOMoveX(target.transform.position.x, EnemySpeed);
+        gameObject.transform.DOMoveX(target.transform.position.x, BearSpeed);
 
     }
     void FlipBear(float distance)
@@ -55,6 +58,11 @@ public class HoneyBearControl : MonoBehaviour
             Destroy(gameObject);
             gameManagerScriptBear.GetComponent<Player_ScoreHealth>().updateScore();
 
+
+            if (isPowerBear)
+            {
+                print("PowerActivated");
+            }
         }
 
         

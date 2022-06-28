@@ -19,8 +19,11 @@ public class HurtHero : MonoBehaviour
             //  print(collision.gameObject.name);
             // print("Collision With hero");
 
-                                             
-            playerScript.updateLife();
+            if(GameManagerScript.gameManagerInstance.godMode == false)
+            {
+                playerScript.updateLife();
+            }  
+            
             //gameObject.SetActive(false);
         }
     }

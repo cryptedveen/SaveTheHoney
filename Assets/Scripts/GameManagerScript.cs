@@ -9,11 +9,15 @@ public class GameManagerScript : MonoBehaviour
     bool gameIsActive = true;
 
 
+
+
     public bool currentlyAttacking = false;
+
+    public bool canSpawnPowerBear, godMode;
 
     static public GameManagerScript gameManagerInstance;
 
-   
+    float StartTime, GameTime;
 
     [SerializeField, Tooltip("List of Spawner")] List<SpawnScript> SpawnScripts = new List<SpawnScript>();
     [SerializeField, Tooltip("Bears")] GameObject HoneyBears;
@@ -27,6 +31,9 @@ public class GameManagerScript : MonoBehaviour
 
     void Start()
     {
+
+        StartTime = Time.time;
+
         if (!CanvasObject.activeInHierarchy)
         {
             CanvasObject.SetActive(true);
@@ -34,7 +41,7 @@ public class GameManagerScript : MonoBehaviour
 
         StartCoroutine("ContinousAttackScript");
         StartCoroutine("ContinousHoneyBearScript");
-       // InvokeRepeating("SpawnerActivate", 2f, timegap);
+       
     }
 
     IEnumerator ContinousAttackScript()
@@ -42,7 +49,7 @@ public class GameManagerScript : MonoBehaviour
         while (gameIsActive)
         {
             SpawnerActivate();
-            //spawnBear();
+            
 
             yield return new WaitForSeconds(timegap);
         }
@@ -55,7 +62,7 @@ public class GameManagerScript : MonoBehaviour
         {
             spawnBear();
 
-            int randomwaitvalue = Random.Range(5, 11);
+            int randomwaitvalue = Random.Range(4, 6);
             yield return new WaitForSeconds(randomwaitvalue);
         }
 
@@ -78,38 +85,48 @@ public class GameManagerScript : MonoBehaviour
     {
         selectSpawner = Random.Range(0, SpawnScripts.Count);
 
+        
+
         //This will call the Spawn Enemy function of selected spawner.
-        SpawnScripts[selectSpawner].spawnHoneyBear();
+        SpawnScripts[selectSpawner].spawnHoneyBear(canSpawnPowerBear);
+
+
     }
+
+   
+
+
 
     public void increaseTime()
     {
-        if (Time.time >= 30f)
+        GameTime = Time.time;
+
+        if (GameTime >= 60f)
         {
             timegap = 1f;
          //   print(timegap);
         }
-        if (Time.time >= 60f)
+        if (GameTime >= 120f)
+        {
+            timegap = 0.95f;
+         //   print(timegap);
+
+        }
+        if (GameTime >= 180f)
         {
             timegap = 0.8f;
          //   print(timegap);
 
         }
-        if (Time.time >= 120f)
+        if (GameTime >= 360f)
         {
-            timegap = 0.7f;
+            timegap = 0.65f;
          //   print(timegap);
 
         }
-        if (Time.time >= 240f)
+        if (GameTime >= 480f)
         {
             timegap = 0.6f;
-         //   print(timegap);
-
-        }
-        if (Time.time >= 360f)
-        {
-            timegap = 0.5f;
           //  print(timegap);
 
         }

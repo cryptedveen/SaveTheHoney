@@ -534,7 +534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bf83798f959a741a5d5b51b25aa4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemySpeed: 10
+  isPowerBear: 0
+  BearSpeed: 5
 --- !u!1 &4875638556335720808
 GameObject:
   m_ObjectHideFlags: 0

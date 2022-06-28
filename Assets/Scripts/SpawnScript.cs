@@ -5,14 +5,17 @@ using UnityEngine;
 public class SpawnScript : MonoBehaviour
 {
     [SerializeField]  List<GameObject> Enemies = new List<GameObject>();
-    int selection;
+    int enemySelection, powerbearSelection;
     [SerializeField] GameObject HoneyBear;
+    [SerializeField] List<GameObject> PowerBears = new List<GameObject>();
+
+
     public void SpawnEnemy()
     {
         //This will select which enemy to spawn from the list of enemies
-        selection = Random.Range(0, Enemies.Count);
+        enemySelection = Random.Range(0, Enemies.Count);
 
-       GameObject spawnedEnemy = Instantiate(Enemies[selection], gameObject.transform.position, Quaternion.identity);
+       GameObject spawnedEnemy = Instantiate(Enemies[enemySelection], gameObject.transform.position, Quaternion.identity);
 
         if(gameObject.name == "LeftSpawnerTop" || gameObject.name == "RightSpawnerTop")
         {
@@ -29,10 +32,42 @@ public class SpawnScript : MonoBehaviour
         }
     }
       
-    public void spawnHoneyBear()
+    public void spawnHoneyBear(bool canSpawnPower)
     {
-        GameObject spawnedbear = Instantiate(HoneyBear, gameObject.transform.position, Quaternion.identity);
 
-       
+
+        if (canSpawnPower)
+        {
+            powerbearSelection = Random.Range(0, PowerBears.Count+1);
+            Instantiate(PowerBears[powerbearSelection], gameObject.transform.position, Quaternion.identity);
+
+            GameManagerScript.gameManagerInstance.canSpawnPowerBear = false;
+        }
+        else
+        {
+
+            // While the normal power bear will spawn every 50 points, This will also call a power bear randomly with a chance of 1 in 10. 
+            int powerRandomChecker;
+            
+            powerRandomChecker = (int)Random.Range(0, 10);
+            if(powerRandomChecker == 0)
+            {
+                Instantiate(PowerBears[powerbearSelection], gameObject.transform.position, Quaternion.identity);
+                //canSpawnPower = false;
+            }
+            else
+            {
+                Instantiate(HoneyBear, gameObject.transform.position, Quaternion.identity);
+                //canSpawnPower = false;
+            }
+
+           
+        }
+
+           
+
+
+
+
     }
 }
