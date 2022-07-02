@@ -6,9 +6,9 @@ public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] GameObject CanvasObject;
     public float timegap = 2f;
-    bool gameIsActive = true;
+    public bool gameIsActive = true;
 
-
+    public bool isEnemySlowed = false;
 
 
     public bool currentlyAttacking = false;
@@ -107,47 +107,11 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-   
-
-
-
-    public void increaseTime()
+    public void RestoreHerohealth()
     {
-        GameTime = Time.time;
-
-        if (GameTime >= 60f)
-        {
-            timegap = 1f;
-         //   print(timegap);
-        }
-        if (GameTime >= 120f)
-        {
-            timegap = 0.95f;
-         //   print(timegap);
-
-        }
-        if (GameTime >= 180f)
-        {
-            timegap = 0.8f;
-         //   print(timegap);
-
-        }
-        if (GameTime >= 360f)
-        {
-            timegap = 0.65f;
-         //   print(timegap);
-
-        }
-        if (GameTime >= 480f)
-        {
-            timegap = 0.6f;
-          //  print(timegap);
-
-        }
+        gameObject.GetComponentInChildren<Player_ScoreHealth>().AddHeroLife();
     }
 
-    
-  
 }
 
 

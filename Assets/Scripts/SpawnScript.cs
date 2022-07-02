@@ -39,7 +39,7 @@ public class SpawnScript : MonoBehaviour
 
         if (canSpawnPower)
         {
-            powerbearSelection = Random.Range(0, PowerBears.Count);
+            powerbearSelection = Random.Range(0, PowerBears.Count+1);
             Instantiate(PowerBears[powerbearSelection], gameObject.transform.position, Quaternion.identity);
 
             GameManagerScript.gameManagerInstance.canSpawnPowerBear = false;

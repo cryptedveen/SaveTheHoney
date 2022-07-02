@@ -2420,7 +2420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1048106471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11471,20 +11471,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6971291409627939909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6971291409627939912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e718843def0b265428d248c999ffd460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 0.3
-  main: {fileID: 0}
 --- !u!61 &6971291409627939910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11536,7 +11522,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6971291409627939911}
   - component: {fileID: 6971291409627939910}
-  - component: {fileID: 6971291409627939909}
   m_Layer: 0
   m_Name: FArm_Hitbox
   m_TagString: GetDamage
@@ -11606,22 +11591,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6971291409844867408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7446929882457026808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2021b0266e4cbf40bbcf5b33d9c82c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  THand: {fileID: 6971291409627939910}
-  BHand: {fileID: 6971291410696853450}
-  TLeg: {fileID: 6971291411471149477}
-  BLeg: {fileID: 6971291410305972978}
 --- !u!95 &6971291409844867409
 Animator:
   serializedVersion: 4
@@ -11885,20 +11854,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6971291410305972977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6971291410305972980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e718843def0b265428d248c999ffd460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 0.3
-  main: {fileID: 0}
 --- !u!61 &6971291410305972978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11950,7 +11905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6971291410305972979}
   - component: {fileID: 6971291410305972978}
-  - component: {fileID: 6971291410305972977}
   m_Layer: 0
   m_Name: BLeg_Hitbox
   m_TagString: GetDamage
@@ -12051,20 +12005,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6971291410696853449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6971291410696853452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e718843def0b265428d248c999ffd460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 0.3
-  main: {fileID: 0}
 --- !u!61 &6971291410696853450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12116,7 +12056,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6971291410696853451}
   - component: {fileID: 6971291410696853450}
-  - component: {fileID: 6971291410696853449}
   m_Layer: 0
   m_Name: BArm_HitBox
   m_TagString: GetDamage
@@ -12346,20 +12285,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6971291411471149476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6971291411471149479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e718843def0b265428d248c999ffd460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 0.3
-  main: {fileID: 0}
 --- !u!61 &6971291411471149477
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12411,7 +12336,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6971291411471149478}
   - component: {fileID: 6971291411471149477}
-  - component: {fileID: 6971291411471149476}
   m_Layer: 0
   m_Name: FLeg_Hitbox
   m_TagString: GetDamage
@@ -12904,7 +12828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8615622005747411099}
   - component: {fileID: 6971291409844867409}
-  - component: {fileID: 6971291409844867408}
   - component: {fileID: 6971291409844867410}
   m_Layer: 0
   m_Name: HeroBear

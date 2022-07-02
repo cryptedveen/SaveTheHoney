@@ -27,6 +27,8 @@ public class EnemyControl : MonoBehaviour
         target = GameObject.Find("HeroParent");
         gameManagerScript = GameObject.Find("GAMEMANAGER");
         
+
+
         float randomvalue = Random.Range(2.5f, 6f);
         EnemySpeed = randomvalue;
 
@@ -42,7 +44,15 @@ public class EnemyControl : MonoBehaviour
         //Movement Code
         if (gameObject)
         {
-            gameObject.transform.DOMoveX(target.transform.position.x, EnemySpeed);
+            if (GameManagerScript.gameManagerInstance.isEnemySlowed)
+            {
+                gameObject.transform.DOMoveX(target.transform.position.x, (EnemySpeed/2));
+            }
+            else
+            {
+                gameObject.transform.DOMoveX(target.transform.position.x, EnemySpeed);
+            }
+           
         }
        
 

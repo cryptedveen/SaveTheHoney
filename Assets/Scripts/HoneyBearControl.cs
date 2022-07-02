@@ -7,11 +7,22 @@ using DG.Tweening;
 public class HoneyBearControl : MonoBehaviour
 {
 
+    public enum Beartype
+    {
+        superPunch,
+        slowEnemies,
+        blastEnemies,
+        godModeBear,
+        restoreLife
+    }
+
+
     GameObject target;
     BoxCollider2D targetBoxCollider;
     CapsuleCollider2D targetCapsuleCollider;
 
-
+    [SerializeField] Beartype typeOfBear;
+   
     public bool isPowerBear;
 
     [SerializeField] float BearSpeed = 10f;
@@ -62,8 +73,35 @@ public class HoneyBearControl : MonoBehaviour
             if (isPowerBear)
             {
 
-                BearPowers.PowersInstance.canSuperPunch = true;
-                BearPowers.PowersInstance.ActivateSuperPunch();
+                switch (typeOfBear)
+                {
+                    case Beartype.superPunch:
+                        BearPowers.PowersInstance.canSuperPunch = true;
+                        BearPowers.PowersInstance.ActivateSuperPunch();
+                        break;
+
+                    case Beartype.godModeBear:
+                        BearPowers.PowersInstance.useGodMode();
+                        break;
+
+                    case Beartype.blastEnemies:
+                        BearPowers.PowersInstance.useBlastBomb();
+                        break;
+
+                    case Beartype.slowEnemies:
+                        BearPowers.PowersInstance.useSlowEnemies();
+                        break;
+
+                    case Beartype.restoreLife:
+                        BearPowers.PowersInstance.restoreHeroHealth();
+                        break;
+                    
+                    default:
+                        print("Error No Power Detected");
+                        break;
+                }
+
+               
 
                 print("PowerActivated");
             }

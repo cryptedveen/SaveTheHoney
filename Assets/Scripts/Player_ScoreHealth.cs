@@ -54,10 +54,22 @@ public class Player_ScoreHealth : MonoBehaviour
 
             EndScreen.SetActive(true);
 
+            GameManagerScript.gameManagerInstance.gameIsActive = false;
+
             Time.timeScale = 0;
 
 
             //print("Game Ended");
         }
+    }
+
+    public void AddHeroLife()
+    {
+        if(life < 100)
+        {
+            life += (life / 2);
+            HealthSlider.value = life;
+        }
+        
     }
 }
