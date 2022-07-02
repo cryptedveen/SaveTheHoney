@@ -6,7 +6,6 @@ using DG.Tweening;
 public class EnemyControl : MonoBehaviour
 {
 
-    
     GameObject target;
     BoxCollider2D targetBoxCollider;
     CapsuleCollider2D targetCapsuleCollider;
@@ -46,7 +45,7 @@ public class EnemyControl : MonoBehaviour
         {
             if (GameManagerScript.gameManagerInstance.isEnemySlowed)
             {
-                gameObject.transform.DOMoveX(target.transform.position.x, (EnemySpeed/2));
+                gameObject.transform.DOMoveX(target.transform.position.x, (EnemySpeed*4));
             }
             else
             {
@@ -54,8 +53,6 @@ public class EnemyControl : MonoBehaviour
             }
            
         }
-       
-
     }
 
 

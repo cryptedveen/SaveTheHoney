@@ -31,30 +31,30 @@ public class SpawnControlTimer : MonoBehaviour
 
         if (gameTime >= 60f)
         {
-           GameManagerScript.gameManagerInstance.timegap = 1f;
+           GameManagerScript.gameManagerInstance.timegap = 1.8f;
             //   print(timegap);
         }
         if (gameTime >= 180f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 0.95f;
+            GameManagerScript.gameManagerInstance.timegap = 1.75f;
             //   print(timegap);
       
         }
         if (gameTime >= 360f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 0.8f;
+            GameManagerScript.gameManagerInstance.timegap = 1.65f;
             //   print(timegap);
       
         }
         if (gameTime >= 480f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 0.65f;
+            GameManagerScript.gameManagerInstance.timegap = 1.45f;
             //   print(timegap);
       
         }
         if (gameTime >= 600f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 0.6f;
+            GameManagerScript.gameManagerInstance.timegap = 1.0f;
             //  print(timegap);
       
         }

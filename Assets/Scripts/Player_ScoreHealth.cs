@@ -11,13 +11,14 @@ public class Player_ScoreHealth : MonoBehaviour
     [SerializeField] Slider HealthSlider;
     [SerializeField] GameObject Hero;
     [SerializeField] GameObject EndScreen;
-    int score, life;
+    int score, life , maxLife;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 00;
         life = 100;
+        maxLife = 100;
         HealthSlider.value = life;
         ScoreText.text = score.ToString();
     }
@@ -67,8 +68,11 @@ public class Player_ScoreHealth : MonoBehaviour
     {
         if(life < 100)
         {
-            life += (life / 2);
+
+            life = maxLife;
+            
             HealthSlider.value = life;
+
         }
         
     }

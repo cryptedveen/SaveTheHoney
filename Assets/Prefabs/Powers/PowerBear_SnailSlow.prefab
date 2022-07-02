@@ -490,7 +490,6 @@ GameObject:
   - component: {fileID: 4875638556284137663}
   - component: {fileID: 4875638556284137656}
   - component: {fileID: 4875638556284137657}
-  - component: {fileID: 7677138997890719256}
   - component: {fileID: -1545663658562760962}
   m_Layer: 0
   m_Name: PowerBear_SnailSlow
@@ -592,20 +591,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.2503565, y: 4.909097}
   m_Size: {x: 2.6241903, y: 9.56187}
   m_Direction: 0
---- !u!114 &7677138997890719256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875638556284137658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a95405ec4ca1544b83f7a951906224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Flask1: {fileID: 2964183390658147715}
-  Flask2: {fileID: 2955274310301439218}
 --- !u!114 &-1545663658562760962
 MonoBehaviour:
   m_ObjectHideFlags: 0
