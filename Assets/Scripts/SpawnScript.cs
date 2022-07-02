@@ -15,7 +15,7 @@ public class SpawnScript : MonoBehaviour
        //This will select which enemy to spawn from the list of enemies
        enemySelection = Random.Range(0, Enemies.Count);
 
-        SpawnControlTimer.timerInstance.increaseTime();
+       SpawnControlTimer.timerInstance.increaseTimeEasy();
 
        GameObject spawnedEnemy = Instantiate(Enemies[enemySelection], gameObject.transform.position, Quaternion.identity);
 
@@ -39,7 +39,7 @@ public class SpawnScript : MonoBehaviour
 
         if (canSpawnPower)
         {
-            powerbearSelection = Random.Range(0, PowerBears.Count+1);
+            powerbearSelection = Random.Range(0, PowerBears.Count);
             Instantiate(PowerBears[powerbearSelection], gameObject.transform.position, Quaternion.identity);
 
             GameManagerScript.gameManagerInstance.canSpawnPowerBear = false;

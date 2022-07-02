@@ -34,7 +34,8 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
 
-        
+        GameMainData.MainHero = GameObject.Find("HeroParent");
+        GameMainData.MainPlayerTransform = GameMainData.MainHero.gameObject.transform;
 
         StartTime = Time.time;
 

@@ -45,8 +45,16 @@ public class GameControl : MonoBehaviour
     public void ReloadCurrentLevel()
     {
         
+        
        // SceneManager.UnloadScene("GameScene");
         SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1;
+    }
+
+    public void GoHomeScene()
+    {
+        GameMainData.HeroScore = 0;
+        SceneManager.LoadScene("MainMenuScene");
         Time.timeScale = 1;
     }
 }
