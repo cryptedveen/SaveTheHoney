@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
     [SerializeField] GameObject CanvasObject;
-    [SerializeField] float timegap = 2f;
+    public float timegap = 2f;
     bool gameIsActive = true;
 
 
@@ -13,7 +13,7 @@ public class GameManagerScript : MonoBehaviour
 
     public bool currentlyAttacking = false;
 
-    public bool canSpawnPowerBear, godMode;
+    public bool canSpawnPowerBear, godModeBear, superpunchBear;
 
     static public GameManagerScript gameManagerInstance;
 
@@ -22,7 +22,9 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField, Tooltip("List of Spawner")] List<SpawnScript> SpawnScripts = new List<SpawnScript>();
     [SerializeField, Tooltip("Bears")] GameObject HoneyBears;
 
-    int selectSpawner, selectHoneybear;
+    int selectSpawnerEnemy, selectSpawnerBear;
+
+
 
     private void Awake()
     {
@@ -32,6 +34,8 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
 
+        
+
         StartTime = Time.time;
 
         if (!CanvasObject.activeInHierarchy)
@@ -39,9 +43,18 @@ public class GameManagerScript : MonoBehaviour
             CanvasObject.SetActive(true);
         }
 
+      
+      
+       
+    }
+
+    public void GameBegins()
+    {
+        gameIsActive = true;
+
         StartCoroutine("ContinousAttackScript");
         StartCoroutine("ContinousHoneyBearScript");
-       
+
     }
 
     IEnumerator ContinousAttackScript()
@@ -73,22 +86,23 @@ public class GameManagerScript : MonoBehaviour
     public void SpawnerActivate()
     {
         //This will select which spawner to use
-        selectSpawner = Random.Range(0, SpawnScripts.Count);
+        selectSpawnerEnemy = Random.Range(0, SpawnScripts.Count);
 
         //This will call the Spawn Enemy function of selected spawner.
-        SpawnScripts[selectSpawner].SpawnEnemy();
+        SpawnScripts[selectSpawnerEnemy].SpawnEnemy();
 
     }
 
 
     public void spawnBear()
     {
-        selectSpawner = Random.Range(0, SpawnScripts.Count);
+        //This will select which spawner to use
+        selectSpawnerBear = Random.Range(0, SpawnScripts.Count);
 
         
 
         //This will call the Spawn Enemy function of selected spawner.
-        SpawnScripts[selectSpawner].spawnHoneyBear(canSpawnPowerBear);
+        SpawnScripts[selectSpawnerBear].spawnHoneyBear(canSpawnPowerBear);
 
 
     }

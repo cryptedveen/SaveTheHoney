@@ -20,21 +20,42 @@ public class DamageEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D enemyColliders)
     {
-        if(main.currentlyAttacking == false)
+
+        if (main.superpunchBear)
         {
             if (enemyColliders.gameObject.tag == "Enemy")
             {
-                main.currentlyAttacking = true;
+               
                 currentEnemy = enemyColliders.gameObject;
 
-            
+
                 DestroyCurrentEnemy(currentEnemy);
             }
         }
+        else
+        {
+            if (main.currentlyAttacking == false)
+            {
+
+                if (enemyColliders.gameObject.tag == "Enemy")
+                {
+                    main.currentlyAttacking = true;
+                    currentEnemy = enemyColliders.gameObject;
+
+
+                    DestroyCurrentEnemy(currentEnemy);
+                }
+            }
+        }
+        
+
+        
     }
 
     void  DestroyCurrentEnemy(GameObject currentEnemy)
     {
+
+
         DOTween.Kill(currentEnemy.transform);
         currentEnemy.GetComponent<EnemyControl>().colEvent();
         Destroy(currentEnemy);

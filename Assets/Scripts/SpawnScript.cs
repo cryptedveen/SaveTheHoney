@@ -12,8 +12,10 @@ public class SpawnScript : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        //This will select which enemy to spawn from the list of enemies
-        enemySelection = Random.Range(0, Enemies.Count);
+       //This will select which enemy to spawn from the list of enemies
+       enemySelection = Random.Range(0, Enemies.Count);
+
+        SpawnControlTimer.timerInstance.increaseTime();
 
        GameObject spawnedEnemy = Instantiate(Enemies[enemySelection], gameObject.transform.position, Quaternion.identity);
 
@@ -35,10 +37,9 @@ public class SpawnScript : MonoBehaviour
     public void spawnHoneyBear(bool canSpawnPower)
     {
 
-
         if (canSpawnPower)
         {
-            powerbearSelection = Random.Range(0, PowerBears.Count+1);
+            powerbearSelection = Random.Range(0, PowerBears.Count);
             Instantiate(PowerBears[powerbearSelection], gameObject.transform.position, Quaternion.identity);
 
             GameManagerScript.gameManagerInstance.canSpawnPowerBear = false;
@@ -50,7 +51,8 @@ public class SpawnScript : MonoBehaviour
             int powerRandomChecker;
             
             powerRandomChecker = (int)Random.Range(0, 10);
-            if(powerRandomChecker == 0)
+
+            if(powerRandomChecker == 1)
             {
                 Instantiate(PowerBears[powerbearSelection], gameObject.transform.position, Quaternion.identity);
                 //canSpawnPower = false;

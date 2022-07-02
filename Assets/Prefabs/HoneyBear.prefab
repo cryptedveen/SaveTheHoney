@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPowerBear: 0
-  BearSpeed: 5
+  BearSpeed: 8
 --- !u!1 &4875638556335720808
 GameObject:
   m_ObjectHideFlags: 0

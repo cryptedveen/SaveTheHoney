@@ -74,7 +74,11 @@ public class EnemyControl : MonoBehaviour
 
             //Attack Code should be done here
             DOTween.Kill(gameObject.transform);
-            gameManagerScript.GetComponent<GameManagerScript>().increaseTime();
+
+
+           // gameManagerScript.GetComponent<GameManagerScript>().increaseTime();
+
+
             //gameManagerScript.GetComponent<Player_ScoreHealth>().updateLife();
             if (isFlyingTrue)
             {

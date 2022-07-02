@@ -61,8 +61,15 @@ public class HoneyBearControl : MonoBehaviour
 
             if (isPowerBear)
             {
+
+                BearPowers.PowersInstance.canSuperPunch = true;
+                BearPowers.PowersInstance.ActivateSuperPunch();
+
                 print("PowerActivated");
             }
+
+
+
         }
 
         

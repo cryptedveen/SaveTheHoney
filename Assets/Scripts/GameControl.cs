@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 public class GameControl : MonoBehaviour
 {
     bool gameIsPaused = false;
-    [SerializeField] GameObject SettingScreen;
+    [SerializeField] GameObject SettingScreen, LoaderScreen;
+
+
+    private void Start()
+    {
+        StartGameFunctions();
+    }
+
     public void PauseAndResumeGame()
     {
         
@@ -26,6 +33,12 @@ public class GameControl : MonoBehaviour
 
     }
 
+
+    public void StartGameFunctions()
+    {
+        LoaderScreen.SetActive(true);
+        LoaderScreen.GetComponent<Animator>().Play("Base Layer.UI_LoadingEnd", 0, 0.0f);
+    }
 
 
     public void ReloadCurrentLevel()

@@ -39,6 +39,10 @@ public class Player_ScoreHealth : MonoBehaviour
         {
             GameManagerScript.gameManagerInstance.canSpawnPowerBear = true;
         }
+        else 
+        {
+            GameManagerScript.gameManagerInstance.canSpawnPowerBear = false;
+        }
     }
 
     void CheckHeroAlive()
