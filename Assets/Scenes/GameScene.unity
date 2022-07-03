@@ -1033,7 +1033,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14246fdbcb761874091a4f58e36878fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSFX: {fileID: 8300000, guid: e930cb187282e3d439f9a85079d480e4, type: 3}
+  explosionSFX: {fileID: 8300000, guid: 5ef5bdd79c1aee04aad8f93cdd9bdea4, type: 3}
+  powerupSFX: {fileID: 8300000, guid: 1e2e4fc35eb06434082d6c0b46e69507, type: 3}
+  hitSFX:
+  - {fileID: 8300000, guid: e930cb187282e3d439f9a85079d480e4, type: 3}
+  - {fileID: 8300000, guid: a66c5867e559ade40b71e4a4bc6dc32a, type: 3}
+  - {fileID: 8300000, guid: 9ca98f68f3d9f99498341be3cdfacd3c, type: 3}
+  - {fileID: 8300000, guid: 8adb00cf1a2a57c4aa12b216fc374e65, type: 3}
+  - {fileID: 8300000, guid: 27e8c551f96226a4f82f34aecb69019b, type: 3}
 --- !u!4 &513435189
 Transform:
   m_ObjectHideFlags: 0
@@ -1061,7 +1068,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

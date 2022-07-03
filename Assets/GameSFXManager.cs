@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameSFXManager : MonoBehaviour
 {
     static public GameSFXManager SFXinstance;
-    public AudioClip hitSFX;
+    public AudioClip explosionSFX, powerupSFX;
+    public List<AudioClip> hitSFX;
 
     private void Awake()
     {
@@ -15,8 +16,27 @@ public class GameSFXManager : MonoBehaviour
 
     public void EnemyDie()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(hitSFX);
+        if (GameManagerScript.gameManagerInstance.superpunchBear)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(hitSFX[0]);
+        }
+        else
+        {
+            int selection = Random.Range(1, hitSFX.Count);
+            gameObject.GetComponent<AudioSource>().PlayOneShot(hitSFX[selection]);
+        }
+       
     }
+    public void PowerUpSFX()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(powerupSFX);
+    }
+    public void BombSFX()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(explosionSFX);
+    }
+
+
 
 
 }

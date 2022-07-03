@@ -31,6 +31,7 @@ public class BearPowers : MonoBehaviour
 
     public void useGodMode()
     {
+        GameSFXManager.SFXinstance.PowerUpSFX();
         GameManagerScript.gameManagerInstance.godModeBear = true;
         GodCrown.SetActive(true);
 
@@ -51,6 +52,7 @@ public class BearPowers : MonoBehaviour
     {
         allBees = GameObject.FindGameObjectsWithTag("Enemy");
 
+
         foreach(GameObject enemyBee in allBees)
         {
             if(enemyBee != null)
@@ -60,10 +62,14 @@ public class BearPowers : MonoBehaviour
                 Destroy(enemyBee);
             }
         }
+
+        GameSFXManager.SFXinstance.BombSFX();
     }
 
     public void useSlowEnemies()
     {
+        GameSFXManager.SFXinstance.PowerUpSFX();
+
         GameManagerScript.gameManagerInstance.isEnemySlowed = true;
         SlowSnail.SetActive(true);
 
@@ -85,6 +91,8 @@ public class BearPowers : MonoBehaviour
 
     public void ActivateSuperPunch()
     {
+        GameSFXManager.SFXinstance.PowerUpSFX();
+
         if (canSuperPunch)
         {
             BArmGlove.SetActive (true);

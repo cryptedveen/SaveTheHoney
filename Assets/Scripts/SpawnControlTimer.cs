@@ -16,6 +16,7 @@ public class SpawnControlTimer : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        
     }
 
 
@@ -94,12 +95,18 @@ public class SpawnControlTimer : MonoBehaviour
 
         if (gameTime >= 30f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 2f;
+            GameManagerScript.gameManagerInstance.timegap = 2.5f;
             //   print(timegap);
         }
-        if (gameTime >= 180f)
+        if (gameTime >= 60f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 1.7f;
+            GameManagerScript.gameManagerInstance.timegap = 2f;
+            //   print(timegap);
+
+        }
+        if (gameTime >= 240f)
+        {
+            GameManagerScript.gameManagerInstance.timegap = 1.75f;
             //   print(timegap);
 
         }
@@ -111,13 +118,7 @@ public class SpawnControlTimer : MonoBehaviour
         }
         if (gameTime >= 480f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 1.2f;
-            //   print(timegap);
-
-        }
-        if (gameTime >= 600f)
-        {
-            GameManagerScript.gameManagerInstance.timegap = 1f;
+            GameManagerScript.gameManagerInstance.timegap = 1.25f;
             //  print(timegap);
 
         }
@@ -136,25 +137,25 @@ public class SpawnControlTimer : MonoBehaviour
             GameManagerScript.gameManagerInstance.timegap = 2f;
             //   print(timegap);
         }
-        if (gameTime >= 180f)
+        if (gameTime >= 60f)
         {
             GameManagerScript.gameManagerInstance.timegap = 1.5f;
             //   print(timegap);
 
         }
-        if (gameTime >= 360f)
+        if (gameTime >= 180f)
         {
-            GameManagerScript.gameManagerInstance.timegap = 1.25f;
+            GameManagerScript.gameManagerInstance.timegap = 1.2f;
             //   print(timegap);
 
         }
-        if (gameTime >= 480f)
+        if (gameTime >= 360f)
         {
             GameManagerScript.gameManagerInstance.timegap = 1f;
             //   print(timegap);
 
         }
-        if (gameTime >= 600f)
+        if (gameTime >= 480f)
         {
             GameManagerScript.gameManagerInstance.timegap = 0.8f;
             //  print(timegap);
