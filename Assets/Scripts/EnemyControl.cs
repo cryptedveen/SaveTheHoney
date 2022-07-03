@@ -14,7 +14,6 @@ public class EnemyControl : MonoBehaviour
     GameObject gameManagerScript;
     [SerializeField] GameObject VFX_Prefab;
 
-
     BoxCollider2D[] EnemyColliders;
 
     public bool isFlyingTrue;
@@ -128,6 +127,7 @@ public class EnemyControl : MonoBehaviour
     public void colEvent()
     {
         Instantiate(VFX_Prefab, gameObject.transform.position, Quaternion.identity);
+        GameSFXManager.SFXinstance.EnemyDie();
     }
 
    

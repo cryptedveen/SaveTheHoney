@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
+using UnityEngine.SceneManagement;
 
 
 public class AdManagerScript : MonoBehaviour
@@ -14,6 +15,8 @@ public class AdManagerScript : MonoBehaviour
     {
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(initStatus => { });
+
+
         StartCoroutine(RefreshBannerAd());
     }
 
@@ -48,7 +51,7 @@ public class AdManagerScript : MonoBehaviour
     private void RequestBanner()
     {
 
-    #if UNITY_ANDROID
+        #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-4265126177729958/4218950957";
 
 
@@ -58,9 +61,19 @@ public class AdManagerScript : MonoBehaviour
 
 #else
             string adUnitId = "unexpected_platform";
-#endif
 
-        bannerView = new BannerView(adUnitId, AdSize.Leaderboard, AdPosition.Top);
+#endif
+        if (SceneManager.GetActiveScene().name == "MainMenuScene")
+        {
+            bannerView = new BannerView(adUnitId, AdSize.Leaderboard, AdPosition.Bottom);
+
+        }
+        else
+        {
+            bannerView = new BannerView(adUnitId, AdSize.Leaderboard, AdPosition.Top);
+        }
+       
+
     }
 
     private void LoadBanner()
@@ -79,6 +92,6 @@ public class AdManagerScript : MonoBehaviour
 
     //All Above are Banner AD Functions
 
-
+   
 
 }
