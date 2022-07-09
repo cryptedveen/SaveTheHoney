@@ -61,7 +61,7 @@ public class Player_ScoreHealth : MonoBehaviour
 
             GameMainData.HeroScore = score;
 
-            Destroy(Hero.gameObject);
+            Hero.gameObject.SetActive(false);
 
             EndScreen.SetActive(true);
 

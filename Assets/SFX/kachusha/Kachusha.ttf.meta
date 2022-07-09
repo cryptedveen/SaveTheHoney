@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c6d5573203dd85649bf728736b015b00
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kachusha
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 51f1125260d261c44a298ab8fd666e16, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

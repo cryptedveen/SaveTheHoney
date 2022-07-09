@@ -8,14 +8,27 @@ public class MusicONOFF : MonoBehaviour
     public GameObject music;
 
     [SerializeField] Animator MusicUIanimator;
-    bool isMusicOn = true;
+    bool isMusicOn = true, isSFXOn = true;
 
 
     private void Start()
     {
         music = GameObject.Find("MUSICMANAGER");
     }
-    public void SliderOnOff()
+
+
+    public void SFXSlider()
+    {
+        if (isSFXOn)
+        {
+            stopSFX();
+        }
+        else
+        {
+            startSFX();
+        }
+    }
+    public void MusicSliderOnOff()
     {
         if (isMusicOn)
         {
@@ -40,5 +53,20 @@ public class MusicONOFF : MonoBehaviour
     public void startMusic()
     {
         music.GetComponent<AudioSource>().Play();
+    }
+
+
+    public void stopSFX()
+    {
+        MusicUIanimator.Play("Base Layer.UISettingsSliderOFF", 0, 0);
+        GameMainData.SFXActive = false;
+        isSFXOn = false;
+    }
+
+    public void startSFX()
+    {
+        MusicUIanimator.Play("Base Layer.UISettingsSliderON", 0, 0);
+        GameMainData.SFXActive = true; 
+        isSFXOn = true;
     }
 }

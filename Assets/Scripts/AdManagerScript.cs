@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,24 +6,108 @@ using GoogleMobileAds.Api;
 using UnityEngine.SceneManagement;
 
 
+
+
 public class AdManagerScript : MonoBehaviour
 {
 
+    public GameControl gameControl;
+
+
+    #if UNITY_ANDROID
+            string BanneradUnitId   = "ca-app-pub-4265126177729958/4218950957";
+            string RewardUnitID     = "ca-app-pub-4265126177729958~4592439756";
+
+#elif UNITY_IPHONE
+            string BanneradUnitId   = "ca-app-pub-4265126177729958/4218950957";
+            string RewardUnitID     = "ca-app-pub-4265126177729958/3803371187"
+#else
+            string BanneradUnitId = "unexpected_platform";
+
+#endif
+
+
+
+
     private BannerView bannerView;
-    [SerializeField] float BannerAdWaitTime = 60f;
+    private RewardedAd rewardedAd;
+
+
+    [SerializeField] float BannerAdWaitTime = 45f;
+
+
 
     private void Start()
     {
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(initStatus => { });
 
+      
+
+
+        CallRewardAd();
 
         StartCoroutine(RefreshBannerAd());
     }
 
 
+
+
+
+
+
+    //Reward Ad Functions
+
+    void CallRewardAd()
+    {
+
+        rewardedAd = new RewardedAd(RewardUnitID);
+
+        rewardedAd.OnAdClosed += HandleRewardedAdClosed;
+
+        AdRequest Rewardrequest = new AdRequest.Builder().Build();
+
+        // Load the rewarded ad with the request.
+        rewardedAd.LoadAd(Rewardrequest);
+
+        
+    }
   
-    
+    public void ShowRewardAd()
+    {
+        if (rewardedAd.IsLoaded())
+        {
+            rewardedAd.Show();
+        }
+        else
+        {
+            gameControl.ReloadCurrentLevel();
+        }
+
+    }
+
+    public void HandleRewardedAdClosed(object sender, EventArgs args)
+    {
+        CallRewardAd();
+        gameControl.ReloadCurrentLevel();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Banner Ad Functions Below
 
     private void ShowBannerAd()
     {
@@ -38,7 +123,7 @@ public class AdManagerScript : MonoBehaviour
 
         DestroyBanner();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         RestartAd();
     }
@@ -51,26 +136,15 @@ public class AdManagerScript : MonoBehaviour
     private void RequestBanner()
     {
 
-        #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-4265126177729958/4218950957";
-
-
-#elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-4265126177729958/4218950957";
-
-
-#else
-            string adUnitId = "unexpected_platform";
-
-#endif
+       
         if (SceneManager.GetActiveScene().name == "MainMenuScene")
         {
-            bannerView = new BannerView(adUnitId, AdSize.Leaderboard, AdPosition.Bottom);
+            bannerView = new BannerView(BanneradUnitId, AdSize.Leaderboard, AdPosition.Bottom);
 
         }
         else
         {
-            bannerView = new BannerView(adUnitId, AdSize.Leaderboard, AdPosition.Top);
+            bannerView = new BannerView(BanneradUnitId, AdSize.Leaderboard, AdPosition.Top);
         }
        
 

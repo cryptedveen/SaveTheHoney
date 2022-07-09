@@ -19,7 +19,7 @@ public class HoneyBearControl : MonoBehaviour
 
     GameObject target;
     BoxCollider2D targetBoxCollider;
-    CapsuleCollider2D targetCapsuleCollider;
+   
 
     [SerializeField] Beartype typeOfBear;
    
@@ -67,6 +67,7 @@ public class HoneyBearControl : MonoBehaviour
         {
             DOTween.Kill(gameObject.transform);
             Destroy(gameObject);
+
             gameManagerScriptBear.GetComponent<Player_ScoreHealth>().updateScore();
 
 

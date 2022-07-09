@@ -110,6 +110,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void RestoreHerohealth()
     {
+        
         gameObject.GetComponentInChildren<Player_ScoreHealth>().AddHeroLife();
     }
 

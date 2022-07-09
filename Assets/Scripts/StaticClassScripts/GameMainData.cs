@@ -12,7 +12,8 @@ static public class GameMainData
     }
     static public GameDifficulty diffLevel = GameDifficulty.Easy;
 
-
+    static public bool SFXActive = true;
+    static public bool MusicActive = true;
 
     static public GameObject MainHero;
     static public Transform MainPlayerTransform;

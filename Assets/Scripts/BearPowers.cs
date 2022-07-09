@@ -9,12 +9,13 @@ public class BearPowers : MonoBehaviour
 
     public static BearPowers PowersInstance;
 
-    [SerializeField] GameObject BArmGlove, FArmGlove, BLegShoe, FLegShoe, GodCrown, SlowSnail;
+    [SerializeField] GameObject BArmGlove, FArmGlove, BLegShoe, FLegShoe, GodCrown, SlowSnail , PowerVFX;
 
     public bool canSuperPunch, isGodModeTrue, canBlastEnemy, canSlowEnemy;
 
     GameObject[] allBees;
 
+    
     private void Awake()
     {
         PowersInstance = this;
